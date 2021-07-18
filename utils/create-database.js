@@ -1,6 +1,6 @@
 const mysql = require('mysql2/promise');
 const path = require('path');
-const args =- process.argv.slice(2)[0];
+const args = process.argv.slice(2)[0];
 const envFile = args === 'test' ? '../.env.test' : '../env';
 
 require('dotenv').config({
@@ -14,7 +14,7 @@ const setUpDatabase = async () => {
         const db = await mysql.createConnection({
             host: DB_HOST,
             user: DB_USER,
-            password: DB_POASSWORD,
+            password: DB_PASSWORD,
             port: DB_PORT,
         });
         await db.query(`CREATE DATABASE IF NOT EXISTS ${DB_NAME}`);
