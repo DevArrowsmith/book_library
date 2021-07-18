@@ -1,4 +1,4 @@
-const myswl = require('mysql2/promise');
+const mysql = require('mysql2/promise');
 const path = require('path');
 const envFile = '../.env.test';
 
@@ -13,7 +13,7 @@ const dropDatabase = async () => {
         const db = await mysql.createConnection({
             host: DB_HOST,
             user: DB_USER,
-            password: DB_PASSOWRD,
+            password: DB_PASSWORD,
             port: DB_PORT,
         });
         await db.query(`DROP DATABASE ${DB_NAME}`);
