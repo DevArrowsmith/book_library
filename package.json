@@ -15,5 +15,9 @@
   "bugs": {
     "url": "https://github.com/DevArrowsmith/book_library/issues"
   },
-  "homepage": "https://github.com/DevArrowsmith/book_library#readme"
+  "homepage": "https://github.com/DevArrowsmith/book_library#readme",
+  "devDependencies": {
+    "express": "^4.17.1",
+    "mysql2": "^2.2.5"
+  }
 }
