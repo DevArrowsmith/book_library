@@ -1,7 +1,7 @@
-const { Sequelize } = require('sequelize');
+const Sequelize = require('sequelize');
+const ReaderModel = require('./reader');
 
-
-const { DB_PASSWORD, DB_NAME, DB_USER, DB_HOST, DB_PORT } = process.env;
+const { DB_NAME, DB_USER, DB_PASSWORD, DB_HOST, DB_PORT } = process.env;
 
 const setupDatabase = () => {
     const connection = new Sequelize(DB_NAME, DB_USER, DB_PASSWORD, {
@@ -10,23 +10,13 @@ const setupDatabase = () => {
         dialect: 'mysql',
         logging: false,
     });
-    // TODO: pass Sequelize the connection information from your .env.
-    // But in what format?
 
-    connection.sync({alter: true});
-    return {};
+    const Reader = ReaderModel(connection, Sequelize);
+
+    connection.sync({ alter: true });
+    return {
+        Reader
+    };
 };
 
-module.exports = setupDatabase;
-
-
-
-
-
-
-
-
-
-
-
-
+module.exports = setupDatabase();
