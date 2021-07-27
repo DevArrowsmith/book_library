@@ -4,7 +4,7 @@ const { Reader } = require('../src/models');
 const app = require('../src/app');
 
 
-describe('/readers', () => {
+describe('/reader', () => {
 
     before(async () => Reader.sequelize.sync());
 
@@ -13,9 +13,9 @@ describe('/readers', () => {
     })
 
     describe('with no records in the database', () => {
-        describe('POST /readers', () => {
+        describe('POST /reader', () => {
             it('creates a new reader in the database', async () => {
-                const response = await request(app).post('/readers').send({
+                const response = await request(app).post('/reader').send({
                     name: 'Elisabeth Bennett',
                     email: 'future_ms_darcy@gmail.com',
                 });
