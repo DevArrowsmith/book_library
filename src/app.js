@@ -4,6 +4,6 @@ const readerRouter = require('./routes/reader');
 const app = express();
 app.use(express.json());
 
-app.use('/reader', readerRouter);
+app.use('/readers', readerRouter);
 
 module.exports = app;
