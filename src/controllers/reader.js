@@ -9,3 +9,8 @@ exports.findAll = async (_, res) => {
     const readers = await Reader.findAll();
     res.status(200).json(readers);
 }
+
+exports.findByPk = async (req, res) => {
+    const reader = await Reader.findByPk(req.params.id);
+    res.status(200).json(reader);
+}

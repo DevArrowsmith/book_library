@@ -7,4 +7,6 @@ router.post('/', readerController.create);
 
 router.get('/', readerController.findAll);
 
+router.get('/:id', readerController.findByPk)
+
 module.exports = router;
