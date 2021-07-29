@@ -14,3 +14,8 @@ exports.findByPk = async (req, res) => {
     const reader = await Reader.findByPk(req.params.id);
     res.status(200).json(reader);
 }
+
+exports.update = async (req, res) => {
+    const reader = await Reader.update(req.body, { where: {} });
+    res.status(200).json(reader);
+}
