@@ -19,3 +19,10 @@ exports.update = async (req, res) => {
     const reader = await Reader.update(req.body, { where: {} });
     res.status(200).json(reader);
 }
+
+exports.destroy = async (req, res) => {
+    const reader = await Reader.destroy({ 
+        where: { id: req.params.id }
+    });
+    res.status(204).json(reader);
+}
