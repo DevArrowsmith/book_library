@@ -20,8 +20,12 @@ exports.findByPk = async (req, res) => {
 };
 
 exports.update = async (req, res) => {
-    const [ updatedRows ] = await Reader.update(req.body, { where: {} });
-    res.status(200).json(updatedRows);
+    const [ updatedRows ] = await Reader.update(req.body, { where: { id: req.params.id } });
+    if (updatedRows) {
+        res.status(200).json(updatedRows);
+    } else {
+        res.status(404).json({ error: 'The reader could not be found.'});
+    };
 };
 
 exports.destroy = async (req, res) => {
